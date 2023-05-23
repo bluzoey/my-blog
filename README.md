@@ -10,3 +10,5 @@ https://butterfly.js.org/
 # 启动
 npm init && hexo server
 
+# 发布到github.io
+sh deploy.sh	# 命令行路径仅适配我的本机
