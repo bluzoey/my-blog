@@ -107,3 +107,24 @@ deploy:
   repo: git@github.com:bluzoey/bluzoey.github.io.git
   # example, https://github.com/hexojs/hexojs.github.io
   branch: master
+
+# algolia:
+#   appId: "FR4PCRVKH9"
+#   apiKey: "2b3c97093012cbcc7864b374c97846d0"
+#   adminApiKey: "1ec17e52adb0ed23198c7925a17e727a"
+#   chunkSize: 5000
+#   indexName: "my-hexo-blog"
+#   fields:
+#     - content:strip:truncate,0,500
+#     - excerpt:strip
+#     - gallery
+#     - permalink
+#     - photos
+#     - slug
+#     - tags
+#     - title
+
+search:
+  path: search.xml
+  field: post
+  content: true
