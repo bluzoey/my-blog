@@ -16,7 +16,7 @@ tags:
 ### 调研方案
 CSS作为前端三剑客之一，几乎是所有前端同学最先学习的样式表语言。在生产环境的项目工程中，很少见到直接原生使用CSS的。但目前业界还没有通用的CSS工程化方案。这篇文章先简单介绍下7种在React/Next.js中较为流行使用CSS的方式，并说说他们的优缺点。
 
-### 原生 CSS
+#### 原生 CSS
 这是一种用选择器来划分css作用域的方式。
 - 缺点：
 1. 作用域问题
@@ -48,7 +48,7 @@ CSS样式之间会层叠覆盖，需要用大量的classname来指定选择器�
 使用大量冗长的原生CSS，可能会导致
 打出来的包变大。包越大，项目自然跑的就越慢。
 
-### CSS MODULES
+#### CSS MODULES
 这是一种在原生CSS的基础上，通过modules（也可以理解为文件）来划分CSS的作用域。
 
 首先先建一些以.module.css结尾的文件，这些文件里的样式可以只针对某个组件（某个module）生效。这种做法在Next.js尤为常见，因为CSS modules在Next.js是可以开箱即用的。
@@ -91,7 +91,7 @@ export default function Home(){
 1. 不够“程序化”
 CSS modules在原生CSS的基础上增加了以modules（文件）划分的作用域，解决了作用域问题，但仍逃不过在单个module内以原生的方式书写CSS。原生的CSS只能纯纯的枚举出每一条样式，如果能在书写CSS的时候也支持一些程序特性岂不是更好？比如最常用的循环、遍历、函数、继承...
 
-### CSS PREPROCESSOR 预处理器
+#### CSS PREPROCESSOR 预处理器
 Sass、Less、Stylus... 这些预处理器就是为了解决CSS不够“程序化”而诞生的。他们允许你用一种不一样的语法来写CSS，之后再经过编译转化成原生CSS。
 
 这里是一个例子：
@@ -120,7 +120,7 @@ body {
 2. 样式和项目代码微微割裂
 在解决完作用域、程序化问题后，样式在前端项目中完完全全的独立出来了，似乎少了一些联动能力。既然我们有JSX这样整合JS和HTML的合体语言，为什么不能把CSS也合体进来呢？
 
-### CSS IN JS
+#### CSS IN JS
 这是一种把CSS写进JS的解决方案，就像把HTML写进JS后就有了JSX。这一类的库有styled components、emotion、jss、style tron、...
 
 举个使用styled jsx的例子：
@@ -152,7 +152,7 @@ export default function Home(){
 - 缺点：
 1. CSS和JS混写，代码管理困难。
 
-### UTILITY CLASSES 原子类
+#### UTILITY CLASSES 原子类
 时下最火的新概念就是tailwindcss、windi css这些原子类CSS库，能够提供大量的原子类样式，帮助我们快速构建样式。
 ```js
 // 配置好tailwind之后
@@ -173,7 +173,7 @@ export default function Home(){
 - 优势
 1. 打包时，能自动优化，去除没有使用的css样式，减轻打包产物体积。
 
-### CSS FRAMEWORK
+#### CSS FRAMEWORK
 bootstrap、bulma、这一类库既能提供特定的样式主题，又有内置的组件，比如bottom、cards、...等等。我个人在自己倒腾东西的时候非常喜欢用这一类框架，因为实在是太方便啦！这种方式在生产上几乎很少采用，因为开发人员往往需要根据产品原型来绘制前端界面，而不是这些框架固定的样式。另外采用这种方式，也容易对线上性能造成比较大影响。
 ```shell
 // 想使用这一类框架，只用一键安装上
@@ -198,7 +198,7 @@ export default function Home(){
 2. 打包文件过大
 整个bootstrap文件是直接import进来的。因此在打包时，会把大量没使用到的classname也打包进来，会造成打包产物较大～
 
-### 组件库
+#### 组件库
 这是大家最熟悉的方式啦，ant design、material design、t design、rebase、....
 
 ### 最终落地的升级方案
@@ -215,12 +215,8 @@ export default function Home(){
 
 附上一些参考资料：
 
-https://webflow.com/blog/class-naming-101-bem
-
-https://www.nextjs.cn/
-
-https://www.tailwindcss.cn/
-
-https://www.youtube.com/watch?v=ouncVBiye_M
-
-https://www.youtube.com/watch?v=hdGsFpZ0J2E
+Class naming 101: BEM: https://webflow.com/blog/class-naming-101-bem
+7 ways to deal with CSS: https://www.youtube.com/watch?v=ouncVBiye_M
+Should You Use Tailwind CSS?: https://www.youtube.com/watch?v=hdGsFpZ0J2E
+next.js: https://www.nextjs.cn/
+tailwindcss: https://www.tailwindcss.cn/
