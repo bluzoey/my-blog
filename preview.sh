@@ -4,7 +4,7 @@
 cd ~/project/blog
 hexo clean
 hexo g
-cp static/img/* public/img
+cp ~/project/blog/static/img/* ~/project/blog/public/img
 
 # preview in browser
 hexo server
